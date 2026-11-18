@@ -1,0 +1,53 @@
+{
+  "name": "agentdiary",
+  "version": "0.1.0",
+  "description": "Your agents keep a diary — in your own git repo. Append-only session entries, snapshot memory, zero service dependency.",
+  "type": "module",
+  "bin": {
+    "agentdiary": "lib/cli.js"
+  },
+  "files": [
+    "lib",
+    "README.md",
+    "README.zh-CN.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "vitest run",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "prepack": "npm run build"
+  },
+  "keywords": [
+    "agent",
+    "diary",
+    "journal",
+    "session-log",
+    "claude-code",
+    "codex",
+    "git",
+    "developer-tools"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vicfei/agentdiary.git"
+  },
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/vicfei/agentdiary/issues"
+  },
+  "homepage": "https://github.com/vicfei/agentdiary#readme",
+  "devDependencies": {
+    "@types/node": "^20.19.43",
+    "typescript": "5.7",
+    "vitest": "^3.2.7"
+  }
+}
