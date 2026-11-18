@@ -48,6 +48,10 @@ With a TTY, `append` asks interactively. Without one (agent windows scripting th
 
 `off` (default) / `tier` (common credential shapes: AWS keys, PATs, npm tokens, private keys…) / `strict` (tier + high-entropy blobs). The default is `off` on purpose: a diary is a *record*, and its owner decides what may be recorded. Turn a tier on when the repo is shared.
 
+## Name note
+
+The unscoped `agentdiary` name is blocked by npm's typo-similarity rule — an unrelated `agent-diary` exists (conversation-log *analysis*, a different product in an adjacent space). This package ships scoped; the binary is plain `agentdiary`.
+
 ## Status
 
 P0 (this release): the contract, append/sync/scan/verify/log, and the same entry format the DSH plugin writes. P1: adapters that discover entries from Claude Code / Codex session stores automatically. P2: `report daily/weekly` aggregation.

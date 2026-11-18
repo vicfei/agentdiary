@@ -48,6 +48,10 @@ agentdiary verify
 
 `off`（默认）/ `tier`（常见凭据形态：AWS key、PAT、npm token、私钥…）/ `strict`（tier + 高熵块）。默认 `off` 是有意的：日记是*记录*，记什么由主人决定；仓要共享时再开档。
 
+## 名字说明
+
+无 scope 的 `agentdiary` 名被 npm 防蹭名规则拦下——已存在不相干的 `agent-diary`（会话日志*分析*，相邻赛道的另一类产品）。本包以 scoped 名发布；二进制就叫 `agentdiary`。
+
 ## 状态
 
 P0（本版）：目录契约 + append/sync/scan/verify/log，条目格式与 DSH 插件同一拼写。P1：适配器自动发现 Claude Code / Codex 会话存储。P2：`report daily/weekly` 聚合。
