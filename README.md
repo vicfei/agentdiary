@@ -18,7 +18,7 @@ agentdiary.toml                          # node name, scan tier, memory source
 ## Install
 
 ```sh
-npm i -g agentdiary
+npm i -g @vicfei/agentdiary
 ```
 
 ## Quick start

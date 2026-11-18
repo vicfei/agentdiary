@@ -18,7 +18,7 @@ agentdiary.toml                          # 节点名 / 扫描档位 / memory 源
 ## 安装
 
 ```sh
-npm i -g agentdiary
+npm i -g @vicfei/agentdiary
 ```
 
 ## 快速开始
