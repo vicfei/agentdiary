@@ -15,4 +15,5 @@ jobs:
       - run: npm i -g npm@11 --no-audit --no-fund   # runner npm 10.8.2 crashes on node 20.20 ('Exit handler never called')
       - run: npm install --no-audit --no-fund
       - run: npm run typecheck
+      - run: npm run build
       - run: npm test
