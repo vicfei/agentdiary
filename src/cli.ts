@@ -10,6 +10,7 @@ import { syncMemory } from "./sync.js";
 import { verifyContract, dayFilePath } from "./contract.js";
 import { loadConfig } from "./config.js";
 import { parseDay } from "./entry.js";
+import { collectWeek, renderWeek } from "./week.js";
 
 const HELP = `agentdiary — your agents keep a diary, in your own git repo
 
@@ -22,6 +23,8 @@ usage:
   agentdiary scan [--strict] [--root DIR]      scan the diary for credential shapes (exit 1 on hit)
   agentdiary verify [--root DIR]               validate the directory contract (CI-grade)
   agentdiary log [N] [--node X] [--root DIR]   show the last N entries (default 10)
+  agentdiary week [--from YYYY-MM-DD] [--root DIR]
+                                               aggregate a 7-day window across all nodes
 
 defaults: --root = cwd · node/window from agentdiary.toml`;
 
@@ -41,6 +44,15 @@ async function main(): Promise<number> {
     const node = arg("node") ?? defaultNode();
     const created = initDiary(root, node, { force: has("force") });
     console.log(created.length ? created.map((c) => `created ${c}`).join("\n") : "already initialized — nothing to do");
+    return 0;
+  }
+  if (cmd === "week") {
+    const from = /^\d{4}-\d{2}-\d{2}$/.test(arg("from") ?? "") ? (arg("from") as string) : (() => {
+      const d = new Date(Date.now() - 6 * 86_400_000); // default: the trailing 7 days
+      return d.toISOString().slice(0, 10);
+    })();
+    const entries = collectWeek(root, from);
+    console.log(renderWeek(entries, from));
     return 0;
   }
   const cfg = loadConfig(root);
