@@ -1,6 +1,6 @@
 {
   "name": "@vicfei/agentdiary",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Your agents keep a diary — in your own git repo. Append-only session entries, snapshot memory, zero service dependency.",
   "type": "module",
   "bin": {
